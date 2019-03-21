@@ -1,0 +1,34 @@
+
+####################################
+# Simple back-to-back gamma source #
+####################################
+
+/gate/source/addSource VS_beta
+/gate/source/VS_beta/gps/type Volume
+/gate/source/VS_beta/gps/shape Cylinder
+/gate/source/VS_beta/gps/radius 2. cm
+/gate/source/VS_beta/gps/halfz 1.0 cm
+/gate/source/VS_beta/gps/centre 0. 0. 0. cm
+/gate/source/VS_beta/setActivity 300. Bq
+/gate/source/VS_beta/gps/angtype iso
+
+############################
+# Describe source properties
+############################
+
+# Half-Life of the Source
+/gate/source/VS_beta/setForcedUnstableFlag  true
+/gate/source/VS_beta/setForcedHalfLife 230590.8 s
+
+# Distribution of source
+/gate/source/VS_beta/gps/angtype iso
+
+/gate/source/VS_beta/setType backtoback
+
+# The particles emitted by the source are gammas
+/gate/source/VS_beta/gps/particle gamma
+
+# The gammas have an energy of 511 keV
+/gate/source/VS_beta/gps/energytype Mono
+/gate/source/VS_beta/gps/monoenergy 0.511 MeV
+

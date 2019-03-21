@@ -1,0 +1,179 @@
+##################################
+# Simple 99mTc Source		 #
+# NOT-VALIDATED USE WITH CAUTION #
+# 				 #
+# For 1MBq for 99mTc,		 #
+# gamma_activity =  999963 Bq	 #
+# beta_activity  =  000037 Bq	 #
+# IC_activity    = 1225881 Bq 	 #
+##################################
+
+/gate/source/addSource voxel_source_gamma
+/gate/source/voxel_source_gamma/gps/type Volume
+/gate/source/voxel_source_gamma/gps/shape Cylinder
+/gate/source/voxel_source_gamma/gps/radius 2. cm
+/gate/source/voxel_source_gamma/gps/halfz 1.0 cm
+/gate/source/voxel_source_gamma/gps/centre 0. 0. 0. cm
+/gate/source/voxel_source_gamma/setActivity 30000. Bq
+/gate/source/voxel_source_gamma/gps/angtype iso
+
+############################
+# Describe source properties
+############################
+
+# Half-Life of the Source
+/gate/source/voxel_source_gamma/setForcedUnstableFlag  true
+/gate/source/voxel_source_gamma/setForcedHalfLife 21636.0 s
+
+# Distribution of source
+/gate/source/voxel_source_gamma/gps/angtype iso
+
+###########################################
+# Gamma rays from histogram
+# Gammas + xrays from 99mTc
+#
+################################################################################
+# Set verbosity of gps output (2 = every event)                                #
+# This is essential for checking the composition of the source from histograms #
+################################################################################
+#/gate/source/voxel_source_gamma/gps/verbose 2
+################################################################################
+
+/gate/source/voxel_source_gamma/gps/particle gamma
+
+/gate/source/voxel_source_gamma/gps/energytype User
+/gate/source/voxel_source_gamma/gps/histname energy
+
+/gate/source/voxel_source_gamma/gps/emin 0.01824 MeV
+/gate/source/voxel_source_gamma/gps/emax 0.32242 MeV
+
+# X-rays
+/gate/source/voxel_source_gamma/gps/histpoint	0.01824	0.0
+/gate/source/voxel_source_gamma/gps/histpoint	0.01825	21500000.0
+/gate/source/voxel_source_gamma/gps/histpoint	0.01826	0.0
+
+/gate/source/voxel_source_gamma/gps/histpoint	0.01836	0.0
+/gate/source/voxel_source_gamma/gps/histpoint	0.01837	41000000.0
+/gate/source/voxel_source_gamma/gps/histpoint	0.01838	0.0
+
+/gate/source/voxel_source_gamma/gps/histpoint	0.02059	0.0
+/gate/source/voxel_source_gamma/gps/histpoint	0.02060	3330000.0
+/gate/source/voxel_source_gamma/gps/histpoint	0.02061	0.0
+
+/gate/source/voxel_source_gamma/gps/histpoint	0.02061	0.0
+/gate/source/voxel_source_gamma/gps/histpoint	0.02062	6440000.0
+/gate/source/voxel_source_gamma/gps/histpoint	0.02063	0.0
+
+/gate/source/voxel_source_gamma/gps/histpoint	0.02100	0.0
+/gate/source/voxel_source_gamma/gps/histpoint	0.02101	1460000.0
+/gate/source/voxel_source_gamma/gps/histpoint	0.02102	0.0
+
+# Gammas
+/gate/source/voxel_source_gamma/gps/histpoint	0.14050	0.0
+/gate/source/voxel_source_gamma/gps/histpoint	0.14051	890000000.0
+/gate/source/voxel_source_gamma/gps/histpoint	0.14052	0.0
+
+/gate/source/voxel_source_gamma/gps/histpoint	0.14262	0.0
+/gate/source/voxel_source_gamma/gps/histpoint	0.14263	187000.0
+/gate/source/voxel_source_gamma/gps/histpoint	0.14261	0.0
+
+/gate/source/voxel_source_gamma/gps/histpoint	0.23271	0.0
+/gate/source/voxel_source_gamma/gps/histpoint	0.23272	85.0
+/gate/source/voxel_source_gamma/gps/histpoint	0.23273	0.0
+
+/gate/source/voxel_source_gamma/gps/histpoint	0.32240	0.0
+/gate/source/voxel_source_gamma/gps/histpoint	0.32241	970.0
+/gate/source/voxel_source_gamma/gps/histpoint	0.32242	0.0
+###########################################
+
+######
+# Internal conversion decay branch (betas)
+######
+
+/gate/source/addSource voxel_source_IC
+/gate/source/voxel_source_IC/gps/type Volume
+/gate/source/voxel_source_IC/gps/shape Cylinder
+/gate/source/voxel_source_IC/gps/radius 2. cm
+/gate/source/voxel_source_IC/gps/halfz 1.0 cm
+/gate/source/voxel_source_IC/gps/centre 0. 0. 0. cm
+/gate/source/voxel_source_IC/setActivity 36000. Bq
+/gate/source/voxel_source_IC/gps/angtype iso
+
+# Set half-life of source
+/gate/source/voxel_source_IC/setForcedUnstableFlag  true
+/gate/source/voxel_source_IC/setForcedHalfLife 21636.0 s
+
+# Distribution of source
+/gate/source/voxel_source_IC/gps/angtype iso
+
+###########################################
+# Internal Conversion electrons from histogram
+# Internal Conversion electrons from 99mTc
+#
+################################################################################
+# Set verbosity of gps output (2 = every event)                                #
+# This is essential for checking the composition of the source from histograms #
+################################################################################
+#/gate/source/voxel_source_IC/gps/verbose 2
+################################################################################
+
+/gate/source/voxel_source_IC/gps/particle e-
+
+/gate/source/voxel_source_IC/gps/energytype User
+/gate/source/voxel_source_IC/gps/histname energy
+
+/gate/source/voxel_source_IC/gps/emin 0.00162855 MeV
+/gate/source/voxel_source_IC/gps/emax 0.14256005 MeV
+
+# Internal conversion
+/gate/source/voxel_source_IC/gps/histpoint	0.00162855	0.0
+/gate/source/voxel_source_IC/gps/histpoint	0.00162860	87.6
+/gate/source/voxel_source_IC/gps/histpoint	0.00162865	0.0
+
+/gate/source/voxel_source_IC/gps/histpoint	0.00210455	0.0
+/gate/source/voxel_source_IC/gps/histpoint	0.00210460	11.54
+/gate/source/voxel_source_IC/gps/histpoint	0.00210465	0.0
+
+/gate/source/voxel_source_IC/gps/histpoint	0.00216995	0.0
+/gate/source/voxel_source_IC/gps/histpoint	0.00217000	10.4
+/gate/source/voxel_source_IC/gps/histpoint	0.00217005	0.0
+
+/gate/source/voxel_source_IC/gps/histpoint	0.01549995	0.0
+/gate/source/voxel_source_IC/gps/histpoint	0.01550000	2.06
+/gate/source/voxel_source_IC/gps/histpoint	0.01550005	0.0
+
+/gate/source/voxel_source_IC/gps/histpoint	0.11946695	0.0
+/gate/source/voxel_source_IC/gps/histpoint	0.11946700	8.8
+/gate/source/voxel_source_IC/gps/histpoint	0.11946705	0.0
+
+/gate/source/voxel_source_IC/gps/histpoint	0.12158995	0.0
+/gate/source/voxel_source_IC/gps/histpoint	0.12159000	0.65
+/gate/source/voxel_source_IC/gps/histpoint	0.12159005	0.0
+
+/gate/source/voxel_source_IC/gps/histpoint	0.13746845	0.0
+/gate/source/voxel_source_IC/gps/histpoint	0.13746850	1.07
+/gate/source/voxel_source_IC/gps/histpoint	0.13746855	0.0
+
+/gate/source/voxel_source_IC/gps/histpoint	0.13958995	0.0
+/gate/source/voxel_source_IC/gps/histpoint	0.13959000	0.202
+/gate/source/voxel_source_IC/gps/histpoint	0.13959005	0.0
+
+/gate/source/voxel_source_IC/gps/histpoint	0.13996695	0.0
+/gate/source/voxel_source_IC/gps/histpoint	0.13996700	0.194
+/gate/source/voxel_source_IC/gps/histpoint	0.13996705	0.0
+
+/gate/source/voxel_source_IC/gps/histpoint	0.14044295	0.0
+/gate/source/voxel_source_IC/gps/histpoint	0.14044300	0.0307
+/gate/source/voxel_source_IC/gps/histpoint	0.14044305	0.0
+
+/gate/source/voxel_source_IC/gps/histpoint	0.14208995	0.0
+/gate/source/voxel_source_IC/gps/histpoint	0.14209000	0.040
+/gate/source/voxel_source_IC/gps/histpoint	0.14209005	0.0
+
+/gate/source/voxel_source_IC/gps/histpoint	0.14255995	0.0
+/gate/source/voxel_source_IC/gps/histpoint	0.14256000	0.0060
+/gate/source/voxel_source_IC/gps/histpoint	0.14256005	0.0
+
+
+### List available sources##########
+/gate/source/list
